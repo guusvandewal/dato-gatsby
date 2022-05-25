@@ -24,8 +24,6 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header siteTitle={data.datoCmsHomepage.title} />
-        <p>Test</p>
-
       <div
         style={{
           margin: `0 auto`,
