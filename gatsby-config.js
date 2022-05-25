@@ -21,6 +21,7 @@ module.exports = {
         // You can find your read-only API token under the Settings > API tokens
         // section of your administrative area:
         apiToken: 'b2de1ef33b592db5eb1568e20d0559',
+        previewMode: true,
       },
     },
     `gatsby-transformer-sharp`,
