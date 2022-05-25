@@ -1,9 +1,32 @@
-exports.createPages = async ({ actions }) => {
+const path = require(`path`)
+// Log out information after a build is done
+exports.onPostBuild = ({ reporter }) => {
+  reporter.info(`Your Gatsby site has been built!`)
+}
+// Create blog pages dynamically
+exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
-  createPage({
-    path: "/using-dsg",
-    component: require.resolve("./src/templates/using-dsg.js"),
-    context: {},
-    defer: true,
+  const blogPostTemplate = path.resolve(`src/templates/blog-items.js`)
+  const result = await graphql(`
+    query {
+      allDatoCmsBlog {
+        edges {
+          node {
+            id
+            title
+            url
+          }
+        }
+      }
+    }
+  `)
+  result.data.allDatoCmsBlog.edges.forEach(edge => {
+    createPage({
+      path: `${edge.node.url}`,
+      title: `${edge.node.title}`,
+      component: blogPostTemplate,
+      context: {},
+      ownerNodeId: `${edge.node.id}`,
+    })
   })
 }
