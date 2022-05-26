@@ -33,8 +33,8 @@ export default Blog
 `*/
 
 export const query = graphql`
-  query MyQuery($slug: String) {
-      datoCmsBlog(url: { eq: $slug }) {
+  query MyQuery($id: String) {
+      datoCmsBlog(id: { eq: $id }) {
       id
       title
       intro
