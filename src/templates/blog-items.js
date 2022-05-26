@@ -5,11 +5,11 @@ import Layout from "../components/layout"
 
 const Blog = ({ data, ...props }) => (
   console.log(data),
+  console.log(props),
   (
     <Layout>
-     <h1>{data.datoCmsBlog.title}</h1>
-        <p>{data.datoCmsBlog.intro}</p>
-
+      <h1>{data.datoCmsBlog.title}</h1>
+      <p>{data.datoCmsBlog.intro}</p>
     </Layout>
   )
 )
@@ -33,8 +33,8 @@ export default Blog
 `*/
 
 export const query = graphql`
-  query MyQuery($url: String) {
-    datoCmsBlog(url: { eq: $url }) {
+  query MyQuery($slug: String) {
+      datoCmsBlog(url: { eq: $slug }) {
       id
       title
       intro
