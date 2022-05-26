@@ -8,6 +8,8 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
+import BlogItems from "../templates/blog-items";
+import Blog from "../templates/blog-items";
 
 import Header from "./header"
 import "./layout.css"
