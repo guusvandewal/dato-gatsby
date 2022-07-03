@@ -9,13 +9,16 @@ import { StructuredText } from "react-datocms"
 export default function Blog({ data }) {
   console.log(data)
   const query = data.blogQuery1
-  const structuredText = data.blogQuery1.structuredText
+  const structuredText = data.blogQuery1.structuredText.value
   const image = getImage(query.media.gatsbyImageData)
   return (
     <Layout>
       <h1>{query.title}</h1>
       <Markdown>{query.intro}</Markdown>
-        <StructuredText data={structuredText} />
+      {
+        structuredText ?
+            <StructuredText data={structuredText}/> : null
+      }
       <br />
       <br />
       <GatsbyImage image={image} alt={query.media.alt} />
