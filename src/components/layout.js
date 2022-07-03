@@ -34,6 +34,7 @@ const Layout = ({ children }) => {
           padding: `var(--size-gutter)`,
         }}
       >
+          <div id="root"></div>
         <main>{children}</main>
         <footer
           style={{
@@ -41,7 +42,7 @@ const Layout = ({ children }) => {
             fontSize: `var(--font-sm)`,
           }}
         >
-          © {new Date(1000, 29, 1).getFullYear()} &middot; Built with
+          © {new Date(1978, 11, 1).getFullYear()} &middot; Built with
           {` `}
           <a href="https://www.gatsbyjs.com">Gatsby</a>
         </footer>
